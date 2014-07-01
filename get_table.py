@@ -1,10 +1,11 @@
 #!/usr/bin/evn python
 # -*- coding:utf-8 -*-
-
-
+# python 2.7.6
+# urlopen has been deprecated in python 3
 import requests
 import logging
 import time
+from urllib import urlopen
 try:
 	from BeautifulSoup import BeautifulSoup
 except ImportError:
@@ -15,11 +16,10 @@ except ImportError:
 	except ImportError:
 		BeautifulSoup = lambda page: BeautifulSoup_(page, 'html.parser')
 '''
-This tiny piece code segment is inspired by another project for downloading
-lecture resources from Coursera classes. The project's home is at:
-https://github.com/jplehmann/coursera
-Thanks for this wonderful work! If this segment didn't use original lecense 
-properly, please let me know. Thanks!
+The document of BeautifulSoup4:
+http://www.crummy.com/software/BeautifulSoup/bs4/doc/#beautifulsoup
+
+TODO: I need to read the document of BeautifulSoup4
 '''
 def get_page(session, url):
 	r = session.get(url)
@@ -31,17 +31,20 @@ def get_page(session, url):
 		raise
 	return r.text
 
-def main(): 
+def main():
+	href = 'https://tw.stock.yahoo.com/q/q?s=2412'
+	page = urlopen(href) 
+	'''
 	try:
 		href = 'https://tw.stock.yahoo.com/q/q?s=2412'
 		session = requests.Session()
 		s_time = time.time()
-		page = get_page(session, href)
+		page = urlopen(href)
 		e_time = time.time()
 		print ( str(e_time - s_time) + ' was costed to get a page.' )
 	except requests.exceptions.HTTPError:
 		return None
-
+	'''
 	soup = BeautifulSoup(page)
 	#print(soup.prettify()) 
 	# using BequtifulSoup 3 
@@ -67,10 +70,3 @@ if __name__ == '__main__':
 	main()
 
 
-'''
-Add an example to deal with html table
-1. http://nbviewer.ipython.org/github/muxuezi/bs4test/blob/master/bs4test.ipynb
-https://github.com/muxuezi/bs4test
-
-TODO : I need to familiar with BeautifulSoup4 API
-'''
