@@ -55,3 +55,10 @@ def main():
 	'''
 if __name__ == '__main__':
 	main()
+
+
+'''
+Add an example to deal with html table
+1. http://nbviewer.ipython.org/github/muxuezi/bs4test/blob/master/bs4test.ipynb
+https://github.com/muxuezi/bs4test
+'''

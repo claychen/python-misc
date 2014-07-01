@@ -1,4 +1,12 @@
 
 # erase package 
 python setup.py install --record files.txt
-cat files.txt | xargs rm -rf 
+cat files.txt | xargs rm -rf
+
+-or-
+pip uninstall package_name
+
+# install BeautifulSoup4
+pip install BeautifulSoup4
+
+
