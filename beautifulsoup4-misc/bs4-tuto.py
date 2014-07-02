@@ -11,6 +11,7 @@ soup = BeautifulSoup(''.join(doc))
 #
 # TAG Object: get the first 'p' tag 
 #
+print '===TAG Object==='
 tag = soup.p
 
 # the type of tag is bs4.element.Tag 
@@ -35,3 +36,32 @@ print tag
 # del tag's id
 del tag['id']
 print tag
+
+#
+# multi-valued attributes
+#
+print '===multi-valued attributes==='
+css_soup = BeautifulSoup("<p class='body strikeout'></p>")
+print css_soup.p['class']
+
+id_soup = BeautifulSoup('<p id="my id"></p>')
+print id_soup.p['id']
+
+rel_soup = BeautifulSoup('<p>Back to the <a rel="index">homepage</a></p>')
+rel_soup.a['rel'] # ['index']
+rel_soup.a['rel'] = ['index', 'contents']
+print rel_soup.p # <p>Back to the <a rel="index contents">homepage</a></p>
+
+xml_soup = BeautifulSoup('<p class="body strikeout"></p>', 'xml')
+print xml_soup.p['class'] # u'body strikeout'
+
+#
+# NavigableString
+#
+soup = BeautifulSoup('<p>To err is human</p>')
+print type(soup.p.string)
+print unicode(soup.p.string)
+soup.p.string.replace_with('not devine')
+print soup.p
+
+
