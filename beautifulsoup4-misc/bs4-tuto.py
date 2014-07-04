@@ -14,8 +14,6 @@ soup = BeautifulSoup(''.join(doc))
 print '===TAG Object==='
 tag = soup.p
 
-# the type of tag is bs4.element.Tag 
-print type(tag)
 # get 'p' tag name, in this case, it just p
 tag.name
 
