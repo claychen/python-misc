@@ -8,7 +8,7 @@ def main(data):
     r = re.compile('a.*')
     soup = BeautifulSoup(markup)
     print type(r)
-    result = soup.find_all(r)
+    result = soup.find_all(name=r)
     for tmp in result:
         print tmp
 
