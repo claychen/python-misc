@@ -1,9 +1,17 @@
 python-misc
 ===========
 
-### filerename.py 
-This file is to rename file names of png files. The new names of
- png files would be a number sequence according to the last 
-modfied time of files. This is useful when ordering screen shots
-from video clips.
+I am learning python. The way I learn new things is to read 
+some material and reorganize them into piecies I could 
+understand. Github is a wonderful place to store my pieces,
+and the 'little green box' could remind me how long I haven't
+contribute to this technics.
 
+This project(directory?) is to store things I borrowed from the
+net. Therefore, I have no credit for it. If you find something
+useful, take it without say a word. If you find something in 
+this project that is not cited properly and is very similiar 
+to great articles or codes, please let me know to mark credit 
+for all the job done by those great people.
+
+Coding for FUN!
